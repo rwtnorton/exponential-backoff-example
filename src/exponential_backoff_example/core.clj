@@ -36,7 +36,7 @@
                 (do (printf "got 429, sleeping for %d milliseconds\n" sleep-millis)
                     (when verbose (prn :i i, :n n, :backoff backoff, :jitter jitter))
                     (flush))
-                (Thread/sleep (nth backoffs i))
+                (Thread/sleep backoff)
                 (recur (inc i)))
           ;; else
           resp)))))
